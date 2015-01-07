@@ -1,4 +1,4 @@
-FROM <your image>
+FROM images.quadra.opendns.com/opendns/trusty
 ENV DEBIAN_FRONTEND noninteractive
 
 ## install required packages
@@ -22,10 +22,15 @@ RUN pecl install pecl_http-1.7.6
 
 RUN apt-get install ca-certificates
 
+RUN ln -s /var/www/html html 
+
 # Get the dashboard files
 
 # Get rid of the default HTML
 COPY index.html /var/www/html/index.html
+
+# Add our custom HTML and image
+ADD openDNS_Iphone01.png /var/www/html/
 
 # Add php file
 COPY php.ini /etc/php5/apache2/php.ini

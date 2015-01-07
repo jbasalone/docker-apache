@@ -1,4 +1,4 @@
-FROM images.quadra.opendns.com/opendns/trusty
+FROM 
 ENV DEBIAN_FRONTEND noninteractive
 
 ## install required packages
@@ -30,7 +30,6 @@ RUN ln -s /var/www/html html
 COPY index.html /var/www/html/index.html
 
 # Add our custom HTML and image
-ADD openDNS_Iphone01.png /var/www/html/
 
 # Add php file
 COPY php.ini /etc/php5/apache2/php.ini
